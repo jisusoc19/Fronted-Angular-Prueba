@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Injectable()
 export class ClienteService {
  
-  private urlendpoint : string = 'http://localhost:8080/api/imcadulto';
+  private urlendpoint : string = 'https://backend-java-spring-boot-prueba-production.up.railway.app/api/imcadulto';
   private HttpHeaders = new HttpHeaders({'Content_Type': 'application/json'})
   constructor(private http: HttpClient, private router: Router) { }
   getclientes(page: number):  Observable<any>{

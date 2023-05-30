@@ -30,10 +30,10 @@
         <tbody>
             <tr *ngFor="let cliente of clientes">
                 <td><img (click)="abrirmodal(cliente)" *ngIf="cliente?.foto" 
-                    src="http://localhost:8080/api/upload/img/{{cliente.foto}}" alt="{{cliente.foto}}" class="img-thumbnail rounded"
+                    src="https://backend-java-spring-boot-prueba-production.up.railway.app/api/upload/img/{{cliente.foto}}" alt="{{cliente.foto}}" class="img-thumbnail rounded"
                     style="width: 64px; cursor:pointer ;">
                     <img (click)="abrirmodal(cliente)" *ngIf="!cliente?.foto" 
-                    src="http://localhost:8080/img/nonombre.png" alt="sin foto" class="img-thumbnail rounded"
+                    src="https://backend-java-spring-boot-prueba-production.up.railway.app/img/nonombre.png" alt="sin foto" class="img-thumbnail rounded"
                     style="width: 64px; cursor:pointer ;">
                 </td>
                 <td>{{cliente.nombre}}</td>
