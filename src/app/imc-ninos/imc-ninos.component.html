@@ -1,0 +1,32 @@
+<div class="card border-primary mb-3">
+    <div class="card-header">Jovenes-niños</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Listado de clientes</h5>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Nombre</th>
+                <th>Estatura</th> 
+                <th>Edad Meses totales</th>
+                <th>Peso</th>
+                <th>Sexo</th>
+                <th>Email</th>
+                <th>Imc niños</th>
+            </tr>    
+        </thead>
+        <tbody>
+            <tr *ngFor="let imcNino of imcNinos ">
+                <td>{{imcNino.id}}</td>
+                <td>{{imcNino.nombre}}</td>
+                <td>{{imcNino.estatura}}</td>
+                <td>{{imcNino.edad}}</td>
+                <td>{{imcNino.peso}}</td>
+                <td>{{imcNino.sexo}}</td>
+                <td>{{imcNino.email}}</td>
+                <td>{{imcNino.imcnino}}</td>
+            </tr> 
+        </tbody>
+        
+    </table>  
+    </div>

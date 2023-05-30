@@ -1,0 +1,104 @@
+<div class="card bg-dark text-white">
+    <div class="card-header">{{ titulo1 }}</div>
+    <div class="card-body">
+
+        <form #clienteF="ngForm">
+            <div class="form-group row ">
+                <label for="nombre" class="col-form-label col-sm-2">Nombre</label>
+                <div class="col-sm-6 ">
+                    <input type="text" class="form-control " [(ngModel)]="cliente.nombre" name="nombre" required="" minlength="2" #nombre="ngModel">
+                    <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched )">
+                        <div *ngIf="nombre.errors">
+                            nombre es requerido
+                        </div>
+                        <div *ngIf="nombre.errors">
+                            nombre es Nombre almenos debe tener 2 caracteres
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="estatura" class="col-form-label col-sm-2">Estatura</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="cliente.estatura" name="estatura" required maxlength="4" #estatura="ngModel">
+                    <div class="alert alert-danger" *ngIf="estatura.invalid && (estatura.dirty || estatura.touched )">
+                        <div *ngIf="estatura.errors">
+                            Estatura es requerido
+                        </div>
+                        <div *ngIf="estatura.errors">
+                            Estatura debe tener maximo 4 caracteres
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="peso" class="col-form-label col-sm-2">Peso</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="cliente.peso" name="peso" required maxlength="4" #peso="ngModel">
+                    <div class="alert alert-danger" *ngIf="peso.invalid && (peso.dirty || peso.touched )">
+                        <div *ngIf="peso.errors">
+                            peso es requerido
+                        </div>
+                        <div *ngIf="peso.errors">
+                            peso debe tener maximo  4 caracteres
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label for="sexo" class="col-form-label col-sm-2">Sexo</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="cliente.sexo" name="sexo" required required #sexo="ngModel">
+                    <div class="alert alert-danger" *ngIf="sexo.invalid && (sexo.dirty || sexo.touched )">
+                        <div *ngIf="sexo.errors">
+                            sexo es requerido
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="email" class="col-form-label col-sm-2">Email</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" [(ngModel)]="cliente.email" name="email" required email #email="ngModel">
+                    <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched )">
+                        <div *ngIf="email.errors">
+                            Email es requerido
+                        </div>
+                        <div *ngIf="email.errors">
+                            Email en formato incorrecto
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="form-group row">
+                <div class="col-form-label col-sm-2">
+                    <td>Foto Predeterminada<img  *ngIf="cliente?.foto" 
+                    src="https://backend-java-spring-boot-prueba-production.up.railway.app/api/upload/img/{{cliente.foto}}" alt="{{cliente.foto}}" 
+                    style="width: 64px; cursor:pointer ;">
+                    <img  *ngIf="!cliente?.foto" 
+                    src="https://backend-java-spring-boot-prueba-production.up.railway.app/img/nonombre.png" alt="sin foto"  
+                    style="width: 64px; cursor:pointer ;">
+                    </td>
+                </div>
+      
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <button class="btn btn-primary" type="submit" role="button" (click)="create()" *ngIf="!cliente.id else elseBlock" [disabled]="!clienteF.form.valid">Crear</button>
+                    <button class="btn btn-primary" type="submit" role="button" routerLink="/clientes">Salir</button>
+                    <ng-template #elseBlock>
+                        <button class="btn btn-primary" type="submit" role="button" (click)="update()" [disabled]="!clienteF.form.valid">Editar</button>
+                    </ng-template>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
